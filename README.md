@@ -28,7 +28,7 @@ import (
 func main() {
 
 	// set your url api
-	blockscout.SetBlockScoutApiUrl("https://eth.blockscout.com/api")
+	blockscout.Setb.Url("https://eth.blockscout.com/api")
 
 	// get the current block number
 	block, err := blockscout.GetCurrentBlockRpcApi()

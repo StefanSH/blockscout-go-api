@@ -4,8 +4,8 @@ import (
 	"math/big"
 )
 
-func GetTokenTotalSupply(addr string) (*big.Int, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetTokenTotalSupply(addr string) (*big.Int, error) {
+	url := b.Url +
 		moduleValues["stats"] +
 		statsActions["tokensupply"] +
 		"&contractaddress=" + addr
@@ -26,8 +26,8 @@ func GetTokenTotalSupply(addr string) (*big.Int, error) {
 	return res, nil
 }
 
-func GetTotalSupplyNativeCoin() (*big.Float, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetTotalSupplyNativeCoin() (*big.Float, error) {
+	url := b.Url +
 		moduleValues["stats"] +
 		statsActions["ethsupplyexchange"]
 
@@ -48,7 +48,7 @@ func GetTotalSupplyNativeCoin() (*big.Float, error) {
 }
 
 func GetCoinPriceUSD() (*CoinPrice, error) {
-	url := blockScoutApiUrl +
+	url := b.Url +
 		moduleValues["stats"] +
 		statsActions["coinprice"]
 

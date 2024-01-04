@@ -1,8 +1,8 @@
 package blockscout
 
-func GetToken(addr string) (*TokenInfo, error) {
+func (b BlockScoutClient) GetToken(addr string) (*TokenInfo, error) {
 
-	url := blockScoutApiUrl +
+	url := b.Url +
 		moduleValues["token"] +
 		tokenActions["getToken"] +
 		"&contractaddress=" + addr

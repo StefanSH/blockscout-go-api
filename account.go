@@ -6,9 +6,9 @@ import (
 	"strconv"
 )
 
-func GetEthBalance(address string, block uint64) (*big.Float, error) {
+func (b BlockScoutClient) GetEthBalance(address string, block uint64) (*big.Float, error) {
 
-	url := blockScoutApiUrl + moduleValues["account"] +
+	url := b.Url + moduleValues["account"] +
 		accountActions["eth_get_balance"] +
 		"&address=" + address +
 		"&block=" + strconv.FormatUint(block, 10)
@@ -39,9 +39,9 @@ func GetEthBalance(address string, block uint64) (*big.Float, error) {
 	return balance, nil
 }
 
-func GetBalance(address string, block uint64) (*big.Float, error) {
+func (b BlockScoutClient) GetBalance(address string, block uint64) (*big.Float, error) {
 
-	url := blockScoutApiUrl + moduleValues["account"] +
+	url := b.Url + moduleValues["account"] +
 		accountActions["eth_get_balance"] +
 		"&address=" + address +
 		"&block=" + strconv.FormatUint(uint64(block), 10)
@@ -69,8 +69,8 @@ func GetBalance(address string, block uint64) (*big.Float, error) {
 	return balance, nil
 }
 
-func GetBalanceMulti(addrs []string) error {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetBalanceMulti(addrs []string) error {
+	url := b.Url +
 		moduleValues["account"] +
 		accountActions["balancemulti"] +
 		"&address="
@@ -100,8 +100,8 @@ func GetBalanceMulti(addrs []string) error {
 	return nil
 }
 
-func GetTxList(address string) ([]Transaction, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetTxList(address string) ([]Transaction, error) {
+	url := b.Url +
 		moduleValues["account"] +
 		accountActions["txlist"] +
 		"&address=" + address
@@ -116,8 +116,8 @@ func GetTxList(address string) ([]Transaction, error) {
 	return result, nil
 }
 
-func GetTxListInternal(address string) ([]InternalTransaction, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetTxListInternal(address string) ([]InternalTransaction, error) {
+	url := b.Url +
 		moduleValues["account"] +
 		accountActions["txlistinternal"] +
 		"&address=" + address
@@ -132,8 +132,8 @@ func GetTxListInternal(address string) ([]InternalTransaction, error) {
 	return result, nil
 }
 
-func GetTokenList(address string) ([]TokenInfo, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetTokenList(address string) ([]TokenInfo, error) {
+	url := b.Url +
 		moduleValues["account"] +
 		accountActions["tokenlist"] +
 		"&address=" + address
@@ -148,8 +148,8 @@ func GetTokenList(address string) ([]TokenInfo, error) {
 	return result, nil
 }
 
-func GetMinedBlocks(address string) ([]MinedBlock, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetMinedBlocks(address string) ([]MinedBlock, error) {
+	url := b.Url +
 		moduleValues["account"] +
 		accountActions["getminedblocks"] +
 		"&address=" + address
@@ -164,8 +164,8 @@ func GetMinedBlocks(address string) ([]MinedBlock, error) {
 	return result, nil
 }
 
-func GetTokenBalance(account string, token string) (*big.Int, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetTokenBalance(account string, token string) (*big.Int, error) {
+	url := b.Url +
 		moduleValues["account"] +
 		accountActions["tokenbalance"] +
 		"&contractaddress=" + token +

@@ -1,3 +1,3 @@
-module github.com/PositiveSecurity/blockscout-go-api
+module github.com/StefanSH/blockscout-go-api
 
-go 1.21.0
+go 1.20

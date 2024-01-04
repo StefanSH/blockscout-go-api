@@ -7,8 +7,8 @@ import (
 	"strconv"
 )
 
-func GetEpoch(epoch uint64) (Epoch, error) {
-	url := blockScoutApiUrl +
+func (b BlockScoutClient) GetEpoch(epoch uint64) (Epoch, error) {
+	url := b.Url +
 		moduleValues["epoch"] +
 		epochActions["getepoch"] +
 		"&epochNumber=" + strconv.FormatUint(epoch, 10)

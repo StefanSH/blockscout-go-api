@@ -7,7 +7,7 @@ import (
 )
 
 func GetCurrentBlockRpcApi() (*big.Int, error) {
-	url := blockScoutApiUrl +
+	url := b.Url +
 		moduleValues["block"] +
 		blockActions["eth_block_number"]
 
@@ -30,7 +30,7 @@ func GetCurrentBlockRpcApi() (*big.Int, error) {
 }
 
 func GetBlockRewardRpcApi(block uint64) (*BlockRewardInfo, error) {
-	url := blockScoutApiUrl +
+	url := b.Url +
 		moduleValues["block"] +
 		blockActions["getblockreward"] +
 		"&blockno=" + strconv.FormatUint(block, 10)
@@ -48,7 +48,7 @@ func GetBlockRewardRpcApi(block uint64) (*BlockRewardInfo, error) {
 
 func GetBlockByTime(timestamp uint64, closest string) (*BlockNumber, error) {
 
-	url := blockScoutApiUrl +
+	url := b.Url +
 		moduleValues["block"] +
 		blockActions["getblocknobytime"] +
 		"&timestamp=" + strconv.FormatUint(timestamp, 10) +

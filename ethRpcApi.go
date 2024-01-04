@@ -16,7 +16,7 @@ func sendEthereumRPCRequest(method string, params interface{}) (*bytes.Buffer, e
 		return nil, err
 	}
 
-	resp, err := http.Post(blockScoutApiUrl+"/eth-rpc", "application/json", bytes.NewBuffer(requestBody))
+	resp, err := http.Post(b.Url+"/eth-rpc", "application/json", bytes.NewBuffer(requestBody))
 	if err != nil {
 		return nil, err
 	}

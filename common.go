@@ -233,7 +233,7 @@ type Epoch struct {
 }
 
 // URL API in the format "https://instance_base_url/api"
-var blockScoutApiUrl string
+var b.Url string
 
 // Custom errors
 var (
@@ -245,8 +245,12 @@ var (
 	ErrBalanceNotFound = errors.New("balance not found")
 )
 
-func SetBlockScoutApiUrl(url string) {
-	blockScoutApiUrl = url
+type BlockScoutClient struct {
+	Url string
+}
+
+func NewBlockScoutClient(chain string) BlockScoutClient {
+	return BlockScoutClient{Url: fmt.Sprintf("https://%s.blockscout.com/api", chain)}
 }
 
 func sendApiRpcRequest(url string, response *Response) error {

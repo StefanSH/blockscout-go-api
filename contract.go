@@ -1,7 +1,7 @@
 package blockscout
 
-func GetABI(addr string) string {
-	url := blockScoutApiUrl + moduleValues["contract"] +
+func (b BlockScoutClient) GetABI(addr string) string {
+	url := b.Url + moduleValues["contract"] +
 		contractActions["getabi"] +
 		"&address=" + addr
 
@@ -11,8 +11,8 @@ func GetABI(addr string) string {
 	return response.Result.(string)
 }
 
-func GetContractInfo(addr string) (*[]ContractInfo, error) {
-	url := blockScoutApiUrl + moduleValues["contract"] +
+func (b BlockScoutClient) GetContractInfo(addr string) (*[]ContractInfo, error) {
+	url := b.Url + moduleValues["contract"] +
 		contractActions["getsourcecode"] +
 		"&address=" + addr
 

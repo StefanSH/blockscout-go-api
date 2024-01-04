@@ -1,7 +1,7 @@
 package blockscout
 
-func GetTxInfo(hash string) (*Transaction, error) {
-	url := blockScoutApiUrl + moduleValues["transaction"] +
+func (b BlockScoutClient) GetTxInfo(hash string) (*Transaction, error) {
+	url := b.Url + moduleValues["transaction"] +
 		transactionActions["gettxinfo"] +
 		"&txhash=" + hash
 
@@ -16,8 +16,8 @@ func GetTxInfo(hash string) (*Transaction, error) {
 	return &result, nil
 }
 
-func GetTxReceiptStatus(hash string) (*Status, error) {
-	url := blockScoutApiUrl + moduleValues["transaction"] +
+func (b BlockScoutClient) GetTxReceiptStatus(hash string) (*Status, error) {
+	url := b.Url + moduleValues["transaction"] +
 		transactionActions["gettxreceiptstatus"] +
 		"&txhash=" + hash
 
@@ -32,8 +32,8 @@ func GetTxReceiptStatus(hash string) (*Status, error) {
 	return &result, nil
 }
 
-func GetTxStatus(hash string) (*TxStatus, error) {
-	url := blockScoutApiUrl + moduleValues["transaction"] +
+func (b BlockScoutClient) GetTxStatus(hash string) (*TxStatus, error) {
+	url := b.Url + moduleValues["transaction"] +
 		transactionActions["gettxinfo"] +
 		"&txhash=" + hash
 
