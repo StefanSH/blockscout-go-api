@@ -11,7 +11,7 @@ import (
 )
 
 var moduleValues = map[string]string{
-	"account":     "?module=account",
+	"account":     "/addresses",
 	"block":       "?module=block",
 	"contract":    "?module=contract",
 	"logs":        "?module=logs",
